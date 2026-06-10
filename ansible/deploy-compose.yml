@@ -1,0 +1,24 @@
+---
+- name: Deploy Docker Compose Application
+  hosts: web
+  become: yes
+
+  tasks:
+
+    - name: Create app directory
+      file:
+        path: /home/ubuntu/compose-app
+        state: directory
+
+    - name: Copy docker-compose file
+      copy:
+        src: app-compose.yml
+        dest: /home/ubuntu/compose-app/docker-compose.yml
+        owner: ubuntu
+        group: ubuntu
+        mode: '0644'
+
+    - name: Start Docker Compose application
+      shell: docker compose up -d
+      args:
+        chdir: /home/ubuntu/compose-app

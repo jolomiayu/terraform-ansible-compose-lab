@@ -1,0 +1,9 @@
+services:
+  backend:
+    image: hashicorp/http-echo
+    command: ["-text=Hello from Backend"]
+
+  frontend:
+    image: nginx
+    ports:
+      - "80:80"
