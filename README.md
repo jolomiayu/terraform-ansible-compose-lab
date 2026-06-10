@@ -1,6 +1,6 @@
-Terraform + Ansible + Docker Compose Lab 🚀
+# Terraform + Ansible + Docker Compose Lab 🚀
 
-Project Overview
+## Project Overview
 
 This project demonstrates Infrastructure as Code (IaC), Configuration Management, and Container Deployment on AWS.
 
@@ -10,8 +10,9 @@ The project showcases a complete DevOps workflow from infrastructure provisionin
 
 ---
 
-Architecture
+## Architecture
 
+text
 Terraform
     ↓
 EC2 Instance + Security Group
@@ -28,9 +29,10 @@ frontend (nginx)
         ↓
 backend (http-echo)
 
+
 ---
 
-Technologies Used
+## Technologies Used
 
 - AWS EC2
 - Terraform
@@ -42,7 +44,7 @@ Technologies Used
 
 ---
 
-Features
+## Features
 
 - Infrastructure provisioning with Terraform
 - Security group automation
@@ -55,81 +57,94 @@ Features
 
 ---
 
-Project Structure
+## Project Structure
 
+text
 terraform/
 ├── provider.tf
 ├── main.tf
 ├── outputs.tf
+├── variables.tf
 
 ansible/
-├── inventory
 ├── docker-compose.yml
 ├── app-compose.yml
 ├── deploy-compose.yml
+└── inventory
+
 
 ---
 
-Deployment Workflow
+## Deployment Workflow
 
-1. Provision Infrastructure
+### 1. Provision Infrastructure
 
+bash
 terraform init
 terraform apply
 
-2. Verify Connectivity
 
+### 2. Verify Connectivity
+
+bash
 ansible web -i inventory -m ping
 
-3. Install Docker and Docker Compose
 
+### 3. Install Docker and Docker Compose
+
+bash
 ansible-playbook -i inventory docker-compose.yml
 
-4. Deploy Application
 
+### 4. Deploy Application
+
+bash
 ansible-playbook -i inventory deploy-compose.yml
 
----
-
-Screenshots
-
-Terraform Output
-
-"Terraform Output" (screenshots/terraform-output.png)
-
-Ansible Connectivity Test
-
-"Ansible Ping" (screenshots/ansible-ping.png)
-
-Docker Compose Installation
-
-"Docker Compose Version" (screenshots/docker-compose-version.png)
-
-Automated Deployment
-
-"Ansible Deployment" (screenshots/ansible-deployment.png)
-
-Running Containers
-
-"Docker PS" (screenshots/docker-ps.png)
 
 ---
 
-Lessons Learned
+## Screenshots
 
-During deployment, the frontend service was renamed from "web" to "frontend".
+### Terraform Output
+
+![Terraform Output](screenshots/terraform-output.png)
+
+### Ansible Connectivity Test
+
+![Ansible Ping](screenshots/ansible-ping.png)
+
+### Docker Compose Installation
+
+![Docker Compose Version](screenshots/docker-compose-version.png)
+
+### Automated Deployment
+
+![Ansible Deployment](screenshots/ansible-deployment.png)
+
+### Running Containers
+
+![Docker PS](screenshots/docker-ps.png)
+
+---
+
+## Lessons Learned
+
+During deployment, the frontend service was renamed from web to frontend.
 
 This caused Docker Compose to detect an orphan container and report a port allocation conflict.
 
 The issue was resolved using:
 
+bash
 docker compose down --remove-orphans
+
 
 This provided practical experience with Docker Compose troubleshooting and container lifecycle management.
 
 ---
 
-Key Learning Outcomes
+## Key Learning Outcomes
 
 - Infrastructure as Code with Terraform
 - Configuration Management with Ansible
@@ -142,8 +157,8 @@ Key Learning Outcomes
 
 ---
 
-Author
+## Author
 
-Jolomi Ayu
+*Jolomi Ayu*
 
 Cloud / DevOps Engineering Portfolio Project
